@@ -1,0 +1,20 @@
+services:
+  3proxy:
+    image: 3proxy-alpine:latest
+    container_name: 3proxy
+    ulimits:
+      nofile:
+        soft: 1048576
+        hard: 1048576
+    env_file:
+      - .env
+    ports:
+      - ${PROXY_PORT_SOCKS5}:${PROXY_PORT_SOCKS5}/tcp
+    volumes:
+      - ./3proxy.cfg:/etc/3proxy/3proxy.cfg
+    restart: always
+    networks:
+      3proxy:
+
+networks:
+   3proxy:
