@@ -1,6 +1,6 @@
 services:
   3proxy:
-    image: 3proxy-alpine:latest
+    image: ghcr.io/illmouse/3proxy-alpine:main-latest
     container_name: 3proxy
     ulimits:
       nofile:
